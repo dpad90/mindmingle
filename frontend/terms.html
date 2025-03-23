@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms of Service - MindMingle</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        .terms-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .terms-section {
+            background-color: var(--card-bg);
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            padding: 25px;
+            margin-bottom: 30px;
+            position: relative;
+            overflow: hidden;
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        .terms-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--gradient-1);
+        }
+
+        h1, h2, h3 {
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 32px;
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            letter-spacing: 1px;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        p, ul, ol {
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+
+        ul, ol {
+            padding-left: 20px;
+        }
+
+        .back-btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background: var(--gradient-2);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            margin-top: 20px;
+            font-weight: bold;
+            transition: all 0.3s;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .back-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .safety-highlight {
+            background-color: rgba(138, 43, 226, 0.1);
+            border-left: 4px solid var(--primary-color);
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <button id="theme-toggle" title="Toggle Dark/Light Mode">
+        <i class="fas fa-moon"></i>
+    </button>
+    
+    <div class="terms-container">
+        <div class="header">
+            <h1>Mind<span class="highlight">Mingle</span></h1>
+            <p>Terms of Service & Safety Guidelines</p>
+        </div>
+        
+        <div class="terms-section">
+            <h2>Terms of Service</h2>
+            
+            <p>Welcome to MindMingle! By using our service, you agree to these Terms of Service. Please read them carefully.</p>
+            
+            <h3>1. Age Requirement</h3>
+            <p>You must be at least 18 years old to use Funky Chat. By using this service, you confirm that you are at least 18 years of age.</p>
+            
+            <h3>2. Acceptable Use</h3>
+            <p>When using Funky Chat, you agree NOT to:</p>
+            <ul>
+                <li>Harass, abuse, or harm other users</li>
+                <li>Share inappropriate or illegal content</li>
+                <li>Impersonate others</li>
+                <li>Use the service for illegal activities</li>
+                <li>Attempt to circumvent our moderation systems</li>
+                <li>Share personal contact information</li>
+                <li>Record conversations without consent</li>
+                <li>Use automated scripts or bots</li>
+            </ul>
+            
+            <h3>3. Content Moderation</h3>
+            <p>Funky Chat uses automated content filtering to maintain a safe environment. Messages containing inappropriate content will be blocked. Persistent violations may result in temporary or permanent bans.</p>
+            
+            <h3>4. Privacy</h3>
+            <p>We value your privacy. Conversations are not stored permanently on our servers. However, reported content and violations may be reviewed by our moderation team.</p>
+            
+            <div class="safety-highlight">
+                <h3>5. Safety First</h3>
+                <p>Your safety is our priority. We recommend:</p>
+                <ul>
+                    <li>Never share personal identifying information</li>
+                    <li>Be cautious about the information you disclose</li>
+                    <li>Report inappropriate behavior</li>
+                    <li>Exit any conversation that makes you uncomfortable</li>
+                </ul>
+            </div>
+            
+            <h3>6. Disclaimers</h3>
+            <p>Funky Chat is provided "as is" without warranties of any kind. We are not responsible for user-generated content or the behavior of other users.</p>
+            
+            <h3>7. Termination</h3>
+            <p>We reserve the right to terminate or suspend access to our service immediately, without prior notice, for conduct that we believe violates these Terms of Service.</p>
+            
+            <h3>8. Changes to Terms</h3>
+            <p>We may modify these terms at any time. Continued use of Funky Chat after changes indicates your acceptance of the new terms.</p>
+        </div>
+        
+        <div class="terms-section">
+            <h2>Safety Guidelines</h2>
+            
+            <p>At Funky Chat, we're committed to creating a safe environment for all users. Here are some guidelines to follow:</p>
+            
+            <h3>Protecting Your Privacy</h3>
+            <ul>
+                <li>Never share your full name, address, phone number, or email</li>
+                <li>Avoid sharing social media profiles with strangers</li>
+                <li>Do not share financial information</li>
+                <li>Be cautious about sharing photos or videos</li>
+            </ul>
+            
+            <h3>Reporting Concerns</h3>
+            <p>If you encounter inappropriate content or behavior, please use the report function. Our moderation team will review all reports promptly.</p>
+            
+            <h3>Question Mode Safety</h3>
+            <p>When using Question Mode, remember:</p>
+            <ul>
+                <li>Questions should be respectful and appropriate</li>
+                <li>As an asker, you're responsible for the conversations your questions initiate</li>
+                <li>As a discusser, engage respectfully with the topics and other participants</li>
+            </ul>
+            
+            <div class="safety-highlight">
+                <h3>Important Safety Reminder</h3>
+                <p>Funky Chat is designed for fun, casual conversation. If you feel uncomfortable at any point:</p>
+                <ol>
+                    <li>Disconnect immediately</li>
+                    <li>Use the report function if necessary</li>
+                    <li>Take a break if needed</li>
+                </ol>
+                <p>Your wellbeing is more important than any conversation.</p>
+            </div>
+        </div>
+        
+        <a href="index.html" class="back-btn"><i class="fas fa-arrow-left"></i> Back to MindMingle</a>
+    </div>
+
+    <script>
+        // Theme toggle functionality
+        const themeToggle = document.getElementById('theme-toggle');
+        const themeIcon = themeToggle.querySelector('i');
+        const darkMode = localStorage.getItem('darkMode') === 'true';
+        
+        if (darkMode) {
+            document.body.classList.add('dark-mode');
+            themeIcon.classList.remove('fa-moon');
+            themeIcon.classList.add('fa-sun');
+        }
+        
+        themeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+            const isDarkMode = document.body.classList.contains('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            if (isDarkMode) {
+                themeIcon.classList.remove('fa-moon');
+                themeIcon.classList.add('fa-sun');
+            } else {
+                themeIcon.classList.remove('fa-sun');
+                themeIcon.classList.add('fa-moon');
+            }
+        });
+    </script>
+</body>
+</html>

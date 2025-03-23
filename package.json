@@ -1,0 +1,24 @@
+{
+  "name": "stranger-chat",
+  "version": "1.0.0",
+  "description": "An Omegle-style random chat application with Spy Mode",
+  "main": "backend/server.js",
+  "scripts": {
+    "start": "node backend/server.js",
+    "dev": "nodemon backend/server.js",
+    "install-deps": "cd backend && npm install",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "chat",
+    "omegle",
+    "websocket",
+    "real-time",
+    "socket.io"
+  ],
+  "author": "",
+  "license": "MIT",
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}

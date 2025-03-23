@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MindMingle - Connect Through Questions</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <button id="theme-toggle" title="Toggle Dark/Light Mode">
+        <i class="fas fa-moon"></i>
+    </button>
+    <div class="container">
+        <div class="header">
+            <h1>Mind<span class="highlight">Mingle</span></h1>
+            <p>Connect minds, spark conversations</p>
+        </div>
+        
+        <div id="start-screen" class="section">
+            <div class="chat-modes">
+                <h2>Choose an experience</h2>
+                <button id="spy-mode-btn" class="mode-btn active">🔮 Question Mode</button>
+                <button id="text-chat-btn" class="mode-btn">✨ Party Chat ✨</button>
+            </div>
+            
+            <div id="spy-options" class="spy-options hidden">
+                <h3>Question Mode Options</h3>
+                <button id="ask-question-btn" class="spy-btn">Ask a Question</button>
+                <button id="discuss-question-btn" class="spy-btn">Discuss a Question</button>
+                
+                <div id="spy-question-input" class="hidden">
+                    <input type="text" id="question-input" placeholder="Type your question...">
+                    <button id="submit-question-btn">Start</button>
+                </div>
+            </div>
+            
+            <div class="interests">
+                <h3>Add your interests (optional)</h3>
+                <p>Separate with commas</p>
+                <input type="text" id="interests-input" placeholder="e.g. games, music, movies">
+            </div>
+            
+            <div class="agreement-text">
+                <p>By clicking "Start Chatting", you agree to our <a href="terms.html" target="_blank">Terms of Service</a> and confirm you are 18+</p>
+            </div>
+            <button id="start-chat-btn" class="primary-btn">Start Chatting</button>
+        </div>
+        
+        <div id="chat-screen" class="section hidden">
+            <div id="chat-header">
+                <div id="stranger-status">Connecting to a stranger...</div>
+                <div id="chat-controls">
+                    <button id="new-chat-btn">New Chat</button>
+                    <button id="disconnect-btn">Disconnect</button>
+                </div>
+            </div>
+            
+            <div id="chat-messages"></div>
+            
+            <div id="spy-mode-container" class="hidden">
+                <div id="question-display"></div>
+                <div id="spy-messages"></div>
+            </div>
+            
+            <div id="chat-input-area">
+                <input type="text" id="chat-input" placeholder="Type a message...">
+                <button id="emoji-btn" title="Insert Emoji">😊</button>
+                <button id="send-btn">Send</button>
+                <div id="emoji-picker" class="emoji-picker hidden"></div>
+            </div>
+            
+            <!-- Typing indicator, hidden by default -->
+            <div id="typing-indicator" class="typing-indicator hidden">
+                <span>Stranger is typing</span>
+                <div class="dots">
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
