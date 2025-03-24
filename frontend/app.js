@@ -3,11 +3,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const startScreen = document.getElementById('start-screen');
     const chatScreen = document.getElementById('chat-screen');
     const textChatBtn = document.getElementById('text-chat-btn');
-    const spyModeBtn = document.getElementById('spy-mode-btn');
-    const spyOptions = document.getElementById('spy-options');
+    const questionModeBtn = document.getElementById('spy-mode-btn');
+    const questionOptions = document.getElementById('spy-options');
     const askQuestionBtn = document.getElementById('ask-question-btn');
     const discussQuestionBtn = document.getElementById('discuss-question-btn');
-    const spyQuestionInput = document.getElementById('spy-question-input');
+    const questionInput = document.getElementById('spy-question-input');
     const questionInput = document.getElementById('question-input');
     const submitQuestionBtn = document.getElementById('submit-question-btn');
     const interestsInput = document.getElementById('interests-input');
@@ -29,8 +29,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // State variables
     let socket;
-    let chatMode = 'spy'; // 'text' or 'spy'
-    let spyRole = ''; // 'asker' or 'discusser'
+    let chatMode = 'question'; // 'text' or 'question'
+    let questionRole = ''; // 'asker' or 'discusser'
     let strangerConnected = false;
     let currentQuestion = '';
     let typingTimeout;
@@ -105,7 +105,7 @@ document.addEventListener('DOMContentLoaded', () => {
         typingIndicator.classList.remove('hidden');
         
         // Scroll to show the typing indicator
-        if (chatMode === 'spy' && spyRole === 'discusser') {
+        if (chatMode === 'question' && questionRole === 'discusser') {
             spyMessages.scrollTop = spyMessages.scrollHeight;
         } else {
             chatMessages.scrollTop = chatMessages.scrollHeight;
@@ -121,40 +121,40 @@ document.addEventListener('DOMContentLoaded', () => {
     textChatBtn.addEventListener('click', () => {
         chatMode = 'text';
         textChatBtn.classList.add('active');
-        spyModeBtn.classList.remove('active');
-        spyOptions.classList.add('hidden');
+        questionModeBtn.classList.remove('active');
+        questionOptions.classList.add('hidden');
     });
 
-    spyModeBtn.addEventListener('click', () => {
-        chatMode = 'spy';
-        spyModeBtn.classList.add('active');
+    questionModeBtn.addEventListener('click', () => {
+        chatMode = 'question';
+        questionModeBtn.classList.add('active');
         textChatBtn.classList.remove('active');
-        spyOptions.classList.remove('hidden');
+        questionOptions.classList.remove('hidden');
     });
 
-    // Spy mode options
+    // Question mode options
     askQuestionBtn.addEventListener('click', () => {
-        spyRole = 'asker';
+        questionRole = 'asker';
         askQuestionBtn.classList.add('active');
         discussQuestionBtn.classList.remove('active');
-        spyQuestionInput.classList.remove('hidden');
+        questionInput.classList.remove('hidden');
     });
 
     discussQuestionBtn.addEventListener('click', () => {
-        spyRole = 'discusser';
+        questionRole = 'discusser';
         discussQuestionBtn.classList.add('active');
         askQuestionBtn.classList.remove('active');
-        spyQuestionInput.classList.add('hidden');
+        questionInput.classList.add('hidden');
     });
 
     // Start chat
     startChatBtn.addEventListener('click', () => {
-        if (chatMode === 'spy' && spyRole === '') {
+        if (chatMode === 'question' && questionRole === '') {
             addSystemMessage('Please select a Question Mode option');
             return;
         }
 
-        if (chatMode === 'spy' && spyRole === 'asker' && !questionInput.value.trim()) {
+        if (chatMode === 'question' && questionRole === 'asker' && !questionInput.value.trim()) {
             addSystemMessage('Please enter a question');
             return;
         }
@@ -169,20 +169,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (chatMode === 'text') {
             socket.emit('find_match', { interests });
-        } else if (chatMode === 'spy') {
-            if (spyRole === 'asker') {
+        } else if (chatMode === 'question') {
+            if (questionRole === 'asker') {
                 currentQuestion = questionInput.value.trim();
                 spyModeContainer.classList.remove('hidden');
                 questionDisplay.textContent = `Your question: ${currentQuestion}`;
                 socket.emit('find_spy_match', { 
-                    role: spyRole,
+                    role: questionRole,
                     question: currentQuestion,
                     interests
                 });
             } else {
                 spyModeContainer.classList.remove('hidden');
                 socket.emit('find_spy_match', { 
-                    role: spyRole,
+                    role: questionRole,
                     interests
                 });
             }
@@ -226,7 +226,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (chatMode === 'text') {
             socket.emit('send_message', { message });
             addYourMessage(message);
-        } else if (chatMode === 'spy' && spyRole === 'discusser') {
+        } else if (chatMode === 'question' && questionRole === 'discusser') {
             socket.emit('send_spy_message', { message });
             addYourMessage(message);
         }
@@ -293,7 +293,7 @@ document.addEventListener('DOMContentLoaded', () => {
         messageElement.classList.add('message', 'system');
         messageElement.textContent = message;
         
-        if (chatMode === 'spy' && (spyRole === 'discusser' || spyRole === 'asker')) {
+        if (chatMode === 'question' && (questionRole === 'discusser' || questionRole === 'asker')) {
             spyMessages.appendChild(messageElement);
             spyMessages.scrollTop = spyMessages.scrollHeight;
         } else {
@@ -326,8 +326,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Initial state
-    spyModeBtn.classList.add('active');
-    spyOptions.classList.remove('hidden');
+    questionModeBtn.classList.add('active');
+    questionOptions.classList.remove('hidden');
     
     // Theme toggle functionality
     if (darkMode) {

@@ -11,7 +11,7 @@ const testQuestion = "What's your favorite movie and why?";
 asker.on("connect", () => {
   console.log("Asker connected with ID:", asker.id);
   
-  // Once connected, submit a question for spy mode
+  // Once connected, submit a question for question mode
   console.log("Asker submitting question:", testQuestion);
   asker.emit("find_spy_match", { 
     role: "asker",
@@ -46,9 +46,9 @@ discusser2.on("connect", () => {
   }, 2000);
 });
 
-// Spy mode match events
+// Question mode match events
 asker.on("spy_matched", (data) => {
-  console.log("Asker: Spy mode session started with question:", data.question);
+  console.log("Asker: Question mode session started with question:", data.question);
   console.log("Asker: Waiting for discussers to talk...");
 });
 
@@ -133,4 +133,4 @@ discusser2.on("error", (data) => {
   console.log("Discusser 2 error:", data.message);
 });
 
-console.log("Spy Mode test script started. Simulating asker and discussers...");
+console.log("Question Mode test script started. Simulating asker and discussers...");

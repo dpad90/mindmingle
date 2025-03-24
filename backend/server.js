@@ -27,7 +27,7 @@ const waitingUsers = {
     spy_discusser: []
 };
 
-// For spy mode askers waiting for two discussers
+// For question mode askers waiting for two discussers
 const spyQuestions = [];
 
 // Active connections
@@ -70,7 +70,7 @@ function findMatch(socket, mode, interests = []) {
     return match;
 }
 
-// Function to find or create a spy session
+// Function to find or create a question session
 function findSpyMatch(socket, role, question = null, interests = []) {
     if (role === 'asker') {
         // Asker adds their question to the queue
@@ -114,7 +114,7 @@ function findSpyMatch(socket, role, question = null, interests = []) {
             const spySession = spyQuestions[bestQuestionIndex];
             spySession.discussers.push(socket);
 
-            // If we now have 2 discussers, start the spy session
+            // If we now have 2 discussers, start the question session
             if (spySession.discussers.length === 2) {
                 // Set up connections for all participants
                 activeConnections.set(spySession.asker.id, {
@@ -190,7 +190,7 @@ io.on('connection', (socket) => {
         }
     });
 
-    // Find a match for spy mode
+    // Find a match for question mode
     socket.on('find_spy_match', (data) => {
         const { role, question, interests = [] } = data;
         
@@ -257,7 +257,7 @@ io.on('connection', (socket) => {
         }
     });
 
-    // Handle spy mode messages
+    // Handle question mode messages
     socket.on('send_spy_message', (data) => {
         const connection = activeConnections.get(socket.id);
         if (!connection || connection.type !== 'spy_discusser') return;
