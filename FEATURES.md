@@ -1,4 +1,4 @@
-# Features of Stranger Chat (Omegle Clone)
+# Features of MindMingle
 
 ## Core Functionality
 
@@ -7,7 +7,7 @@
    - One-on-one random matching with strangers
    - Real-time messaging
 
-2. **Spy Mode**
+2. **Question Mode**
    - Ask a question for two strangers to discuss
    - Join as a discusser to talk about a random question with another stranger
    - Asker can see both discussers' messages, but they can't directly participate
@@ -45,7 +45,7 @@
 - **Message Management**
   - Clear distinction between your messages and stranger messages
   - System messages for status updates
-  - Special formatting for spy mode messages
+  - Special formatting for question mode messages
 
 ### Privacy & Moderation
 - **Content Moderation**
